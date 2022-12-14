@@ -1,0 +1,39 @@
+package com.shop.myapp.entity;
+
+import java.time.LocalDateTime;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+@Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Entity
+public class Board {					//DTO, sql 대신
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	private String title;
+	private String content;
+	private String writer;
+	private int hits;
+	private char deleteYn;
+	private LocalDateTime createdDate = LocalDateTime.now();
+	private LocalDateTime modifiedDate;
+	
+	@Builder	//레코드 추가
+	public Board(String title, String content, String writer, int hits, char deleteYn) {
+		this.title = title;
+		this.content = content;
+		this.writer = writer;
+		this.hits = hits;
+		this.deleteYn = deleteYn;
+	}
+
+}

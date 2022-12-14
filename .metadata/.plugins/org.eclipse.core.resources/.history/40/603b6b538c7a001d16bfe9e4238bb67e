@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<header id="header">
+	<div th:fragment="logo" id="logo">
+		<h2>로고</h2>
+		<a th:href="@{/index}" class="logo"><img th:src="@{/static/img/pen1.jpg}" alt="로고"></a>
+	</div>
+	<nav th:fragment="gnb" id="gnb">
+		<h2>메인 메뉴</h2>
+	</nav>
+	<nav th:fragment="tnb" id="tnb">
+		<h2>상단 메뉴</h2>
+		<ul class="nav justify-content-end">
+		  	  <li class="nav-item">
+			    <a class="nav-link active" href="<%=request.getContextPath() %>/LogOutCtrl">로그아웃</a>
+			  </li>
+			  <li class="nav-item">
+			    <a class="nav-link" href="<%=request.getContextPath() %>/GetCustomInfoCtrl">회원정보</a>
+			  </li>
+			  <% if(sid.equals("admin")) { %>
+			  <li class="nav-item">
+			    <a class="nav-link" href="<%=request.getContextPath() %>/admin/index.jsp">관리자 페이지로</a>
+			  </li>
+			  <% } else { %>
+			  <li class="nav-item">
+			    <a class="nav-link" href="<%=request.getContextPath() %>/GetMemberSalesInfoCtrl">구매내역</a>
+			  </li>
+			  <li class="nav-item">
+			    <a class="nav-link" href="<%=request.getContextPath() %>/GetMemberCartListCtrl">장바구니</a>
+			  </li>
+			  			  
+			  <li class="nav-item">
+			    <a class="nav-link" href="<%=request.getContextPath() %>/custom/membership.jsp">회원가입</a>
+			  </li>
+		  <% } %>
+			  
+			</ul>
+		<li class="nav-item"><a sec:authorize="isAnonymous()" th:href="@{/user/login}"class="nav-link active" >로그인</a></li>
+		<a sec:authorize="isAuthenticated()" th:href="@{/user/logout}">로그아웃</a>
+		<a sec:authorize="isAnonymous()" th:href="@{/user/signup}">회원가입</a>
+		<a sec:authorize="hasRole('ROLE_MEMBER')" th:href="@{/user/myinfo}">내정보</a>
+		<a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/admin}">관리자</a>
+	</nav>
+</header>
+<hr>

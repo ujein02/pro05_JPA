@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:th="http://www.thymeleaf.org"
+ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+	<title>로그인 페이지</title>
+	<th:block th:insert="fragments/common/head"></th:block>
+</head>
+<body>
+<div class="fluid-container">
+	<th:block th:insert="fragments/common/hd"></th:block>
+	<div class="container">
+		<h2 class="title">로그인</h2>
+	    <form action="/user/login" method="post" class="frm1">
+	        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+	        <input type="text" name="username" placeholder="이메일 입력해주세요" class="form-control" autofocus>
+	        <input type="password" name="password" placeholder="비밀번호"class="form-control" >
+	        <div class="btn-group">
+				<input type="submit" name="submit-btn" class="btn btn-dark" value="로그인"/>
+				<input type="reset" name="reset-btn" class="btn btn-secondary" value="취소"/>
+			</div>
+	    </form>
+  	</div>
+	<th:block th:insert="fragments/common/ft"></th:block>
+</div>
+</body>
+</html>

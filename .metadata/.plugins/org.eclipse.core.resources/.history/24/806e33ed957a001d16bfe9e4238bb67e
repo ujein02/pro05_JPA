@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<header id="header">
+<nav class="navbar navbar-expand-light navbar-light bg-dark">
+	<div th:fragment="logo" id="logo">
+		<div class="in_container">
+		  <a class="navbar-brand"  id="logo"  th:href="@{/index}" ></a>
+		 </div>	
+	  
+	<nav th:fragment="gnb" id="gnb">
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+	    <ul class="navbar-nav mr-auto">
+	      <li class="nav-item active">
+	        <a class="nav-link" th:href="@{/index}" id="logo"><img th:src="@{/static/img/pen1.jpg}" alt="로고">BEST PEN</a>
+	      </li>
+	      <li class="nav-item">
+	        <a class="nav-link" href="#">PRODUCT</a>
+	      </li>
+	      <li class="nav-item dropdown">
+	        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+	          COMMUNITY
+	        </a>
+	        <div class="dropdown-menu">
+	          <a class="dropdown-item" th:href="@{/board/list}">NOTICE</a>
+	          <div class="dropdown-divider"></div>
+	          <a class="dropdown-item" th:href="@{/qna/list}">QNA</a>
+	        </div>
+	      </li>
+	    </ul>
+	 </div>
+	</nav>
+	<nav th:fragment="tnb" id="tnb">
+		<ul class="nav justify-content-end">
+		    <li class="nav-item"><a class="nav-link active" sec:authorize="isAnonymous()" th:href="@{/user/login}">로그인</a></li>
+			<li class="nav-item"><a class="nav-link" sec:authorize="isAuthenticated()" th:href="@{/user/logout}">로그아웃</a></li>
+			<li class="nav-item"><a class="nav-link" sec:authorize="isAnonymous()" th:href="@{/user/signup}">회원가입</a></li>
+			<li class="nav-item"><a class="nav-link" sec:authorize="hasRole('ROLE_MEMBER')" th:href="@{/user/myinfo}">내정보</a></li>
+			<li class="nav-item"><a class="nav-link" sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/admin}">관리자</a></li>	  
+		</ul>
+		
+	</nav>
+</nav>	
+</header>
+<hr>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<header id="header">
+	<div th:fragment="logo" id="logo">
+		<h2>로고</h2>
+		<a th:href="@{/index}" class="logo"><img th:src="@{/static/img/pen1.jpg}" alt="로고"></a>
+	</div>
+	<nav th:fragment="gnb" id="gnb">
+		<h2>메인 메뉴</h2>
+	</nav>
+	<nav th:fragment="tnb" id="tnb">
+		<h2>상단 메뉴</h2>
+		<a sec:authorize="isAnonymous()" th:href="@{/user/login}">로그인</a>
+		<a sec:authorize="isAuthenticated()" th:href="@{/user/logout}">로그아웃</a>
+		<a sec:authorize="isAnonymous()" th:href="@{/user/signup}">회원가입</a>
+		<a sec:authorize="hasRole('ROLE_MEMBER')" th:href="@{/user/myinfo}">내정보</a>
+		<a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/admin}">관리자</a>
+	</nav>
+</header>
+<hr>

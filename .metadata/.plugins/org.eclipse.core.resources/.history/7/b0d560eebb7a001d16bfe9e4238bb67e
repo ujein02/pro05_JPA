@@ -1,0 +1,18 @@
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://code.jquery.com/jquery-latest.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+<link rel="stylesheet" th:href="/common.css">
+<style>
+body, html { font-family: 'Noto Sans KR', sans-serif; }
+.container { clear:both; width:1200px; margin:0 auto; }
+.container::after { content:""; display:block; width:100%; clear:both; }
+#gnb::after { content:""; display:block; width:100%; clear:both; }
+#tnb { float:right; }
+#footer{position: relative;min-width: 100%;margin: 0 auto; text-align: center;padding: 50px 0;}
+.title { padding-top:36px; padding-bottom:20px; text-align: center; }
+button, .btn-group{float:right; padding-top:20px;}  
+</style>
